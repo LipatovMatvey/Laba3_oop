@@ -1,4 +1,6 @@
 <Solution>
-  <Project Path="../ModuleTest/ModuleTest.csproj" />
+  <Project Path="../ModuleTest/ModuleTest.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
   <Project Path="Laba3_oop.csproj" />
 </Solution>
