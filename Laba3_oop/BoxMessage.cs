@@ -12,6 +12,11 @@ namespace Laba3_oop
         /// </summary>
         static public uint SuccessCode { get; set; } = 0;
 
+        // <summary>
+        /// Код успешного завершения операции для отображения в MessageBox
+        /// </summary>
+        static public uint ConfirmCode { get; set; } = 4;
+
         /// <summary>
         /// Код для иформационного окна
         /// </summary>

@@ -64,6 +64,7 @@ namespace Laba3_oop
             lblObjectCount = new Label();
             groupBox1 = new GroupBox();
             comboBox2 = new ComboBox();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -478,13 +479,23 @@ namespace Laba3_oop
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(205, 26);
             comboBox2.TabIndex = 1;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(360, 175);
+            button2.Name = "button2";
+            button2.Size = new Size(218, 32);
+            button2.TabIndex = 2;
+            button2.Text = "Заполнить значениями по типу";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 580);
+            Controls.Add(button2);
             Controls.Add(groupBox1);
             Controls.Add(groupBoxObjects);
             Controls.Add(label10);
@@ -555,5 +566,6 @@ namespace Laba3_oop
         private Label lblObjectCount;
         private GroupBox groupBox1;
         private ComboBox comboBox2;
+        private Button button2;
     }
 }

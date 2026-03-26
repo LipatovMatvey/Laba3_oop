@@ -117,7 +117,7 @@ namespace Laba3_oop
             }
             catch (ArgumentException ex)
             {
-                BoxMessage.ShowNativeMessageBox("Ошибка", $"Ошибка создания: {ex.Message}", 16);
+                BoxMessage.ShowNativeMessageBox("Ошибка", $"Ошибка создания: {ex.Message}", BoxMessage.ErrorCode);
             }
         }
 
@@ -166,7 +166,7 @@ namespace Laba3_oop
         {
             if (CurrentShop == null)
             {
-                BoxMessage.ShowNativeMessageBox("Ошибка", "Сначала создайте объект!", 16);
+                BoxMessage.ShowNativeMessageBox("Ошибка", "Сначала создайте объект!", BoxMessage.ErrorCode);
                 return;
             }
             txtDisplayInfo.Clear();
@@ -204,7 +204,7 @@ namespace Laba3_oop
             {
                 int indexToDelete = cmbObjectsList.SelectedIndex;
                 string deletedName = ShopsList[indexToDelete].Name;
-                int result = BoxMessage.ShowNativeMessageBox("Подтверждение", $"Удалить объект '{deletedName}'?", 4);
+                int result = BoxMessage.ShowNativeMessageBox("Подтверждение", $"Удалить объект '{deletedName}'?", BoxMessage.ConfirmCode);
                 if (result == 6)
                 {
                     ShopsList.RemoveAt(indexToDelete);
@@ -220,12 +220,12 @@ namespace Laba3_oop
                     }
                     UpdateObjectCount();
                     UpdateObjectsList();
-                    BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", 0x40);
+                    BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", BoxMessage.SuccessCode);
                 }
             }
             else
             {
-                BoxMessage.ShowNativeMessageBox("Ошибка", "Выберите объект для удаления!", 16);
+                BoxMessage.ShowNativeMessageBox("Ошибка", "Выберите объект для удаления!", BoxMessage.ErrorCode);
             }
         }
 
@@ -250,12 +250,37 @@ namespace Laba3_oop
             CurrentShop = ShopsList[cmbObjectsList.SelectedIndex];
             UpdateObjectsList();
             DisplayCurrentShopInfo();
-            BoxMessage.ShowNativeMessageBox("Успех", $"Переключено на объект: {CurrentShop.Name}", 0x40);
+            BoxMessage.ShowNativeMessageBox("Успех", $"Переключено на объект: {CurrentShop.Name}", BoxMessage.SuccessCode);
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Обработчик кнопки очистки текстового поля
+        /// </summary>
+        /// <param name="sender">Объект, вызвавший событие</param>
+        /// <param name="e">Аргументы события</param>
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtDisplayInfo.Clear();
+
+        }
+        /// <summary>
+        /// Обработчик кнопки отображения полной информации о текущем объекте
+        /// </summary>
+        /// <param name="sender">Объект, вызвавший событие</param>
+        /// <param name="e">Аргументы события</param>
+        private void btnShowInfo_Click_1(object sender, EventArgs e)
+        {
+            DisplayCurrentShopInfo();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
             int index = comboBox2.SelectedIndex;
+            if (index == -1)
+            {
+                BoxMessage.ShowNativeMessageBox("Ошибка", "Сначала выберите тип магазина", BoxMessage.ErrorCode);
+                return;
+            }
             switch (index)
             {
                 case 0:
@@ -295,33 +320,6 @@ namespace Laba3_oop
                     comboBox1.SelectedIndex = 1;
                     break;
             }
-            string name = textBox1.Text.Trim();
-            string address = textBox2.Text.Trim();
-            int purchases = (int)numericUpDown1.Value;
-            int products = (int)numericUpDown2.Value;
-            double avgCheck = (double)numericUpDown3.Value;
-            double rating = (double)numericUpDown4.Value;
-            int active = comboBox1.SelectedIndex;
-        }
-
-        /// <summary>
-        /// Обработчик кнопки очистки текстового поля
-        /// </summary>
-        /// <param name="sender">Объект, вызвавший событие</param>
-        /// <param name="e">Аргументы события</param>
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtDisplayInfo.Clear();
-
-        }
-        /// <summary>
-        /// Обработчик кнопки отображения полной информации о текущем объекте
-        /// </summary>
-        /// <param name="sender">Объект, вызвавший событие</param>
-        /// <param name="e">Аргументы события</param>
-        private void btnShowInfo_Click_1(object sender, EventArgs e)
-        {
-            DisplayCurrentShopInfo();
         }
     }
 }
