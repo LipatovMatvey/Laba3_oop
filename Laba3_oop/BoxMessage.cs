@@ -3,10 +3,25 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace LABA_1
+namespace Laba3_oop
 {
     internal abstract class BoxMessage
     {
+        /// <summary>
+        /// Код успешного завершения операции для отображения в MessageBox
+        /// </summary>
+        static public uint SuccessCode { get; set; } = 0;
+
+        /// <summary>
+        /// Код для иформационного окна
+        /// </summary>
+        static public uint InfoCode { get; set; } = 0x40;
+
+        /// <summary>
+        /// Код ошибки для отображения в MessageBox
+        /// </summary>
+        static public uint ErrorCode { get; set; } = 16;
+
         /// <summary>
         /// Импорт функции MessageBox из библиотеки user32.dll
         /// </summary>

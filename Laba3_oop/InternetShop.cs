@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Xml.Linq;
 
-namespace LABA_1
+namespace Laba3_oop
 {
     public class InternetShop
     {
@@ -37,12 +37,12 @@ namespace LABA_1
         }
 
         /// <summary>
-        /// Число покупок
+        /// Кол-во покупок в сутки
         /// </summary>
         private int purchaseCount;
 
         /// <summary>
-        /// Число покупок
+        /// Кол-во покупок в сутки
         /// </summary>
         public int PurchaseCount
         {
@@ -107,16 +107,6 @@ namespace LABA_1
         }
 
         /// <summary>
-        /// Счётчик объектов
-        /// </summary>
-        public static int ObjectsCount = 0;
-
-        /// <summary>
-        /// Идентификатор магазина
-        /// </summary>
-        public static int Id { get; set; }
-
-        /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
         public InternetShop()
@@ -128,28 +118,6 @@ namespace LABA_1
             this.averageCheck = 0.0;
             this.rating = 0.0;
             this.isActive = false;
-            ObjectsCount++;
-            Id++;
-        }
-
-        /// <summary>
-        /// Конструктор с одним параметром
-        /// </summary>  
-        /// <param name="name">Название магазина</param>
-        public InternetShop(string name): this()
-        {
-            this.name = name;
-        }
-
-        /// <summary>
-        /// Конструктор с двумя параметрами
-        /// </summary>
-        /// <param name="name">Название магазина</param>
-        /// <param name="address">Адрес магазина</param>
-        public InternetShop(string name, string address) : this()
-        {
-            this.name = name;
-            this.address = address;
         }
 
         /// <summary>
@@ -157,7 +125,7 @@ namespace LABA_1
         /// </summary>
         /// <param name="name">Название магазина</param>
         /// <param name="address">Адрес магазина</param>
-        /// <param name="purchases">Число покупок</param>
+        /// <param name="purchases">Число покупок в сутки</param>
         /// <param name="products">Количество товаров</param>
         /// <param name="avgCheck">Средний чек</param>
         /// <param name="shopRating">Рейтинг магазина</param>
@@ -172,8 +140,6 @@ namespace LABA_1
             this.averageCheck = avgCheck;
             this.rating = shopRating;
             this.isActive = active;
-            ObjectsCount++;
-            Id++;
         }
 
         /// <summary>
@@ -183,22 +149,12 @@ namespace LABA_1
         public override string ToString()
         {
             return $"Интернет-магазин: {name}\r\n" +
-                   $"Адрес: {address}\r\n";
-                   //$"Количество покупок: {purchaseCount}\r\n" +
-                   //$"Количество товаров: {productCount}\r\n" +
-                   //$"Средний чек: {averageCheck:C}\r\n" +
-                   //$"Рейтинг: {rating:F1}\r\n" +
-                   //$"Статус: {(isActive ? "Активен" : "Неактивен")}";
+                   $"Адрес: {address}\r\n" +
+                   $"Количество покупок в сутки: {purchaseCount}\r\n" +
+                   $"Количество товаров: {productCount}\r\n" +
+                   $"Средний чек: {averageCheck:C}\r\n" +
+                   $"Рейтинг: {rating:F1}\r\n" +
+                   $"Статус: {(isActive ? "Активен" : "Неактивен")}";
         }
-
-        /// <summary>
-        /// Метод для получения шестнадцатеричного представления количества товаров
-        /// </summary>
-        /// <returns></returns>
-        public string GetProductCountHex()
-        {
-            return $"Количество товаров (16-ричное): 0x{productCount:X}";
-        }
-
     }
 }
