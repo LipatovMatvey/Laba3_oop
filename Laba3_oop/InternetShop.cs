@@ -125,7 +125,7 @@ namespace Laba3_oop
         /// </summary>
         /// <param name="name">Название магазина</param>
         /// <param name="address">Адрес магазина</param>
-        /// <param name="purchases">Число покупок в сутки</param>
+        /// <param name="purchases">Кол-во покупок в сутки</param>
         /// <param name="products">Количество товаров</param>
         /// <param name="avgCheck">Средний чек</param>
         /// <param name="shopRating">Рейтинг магазина</param>

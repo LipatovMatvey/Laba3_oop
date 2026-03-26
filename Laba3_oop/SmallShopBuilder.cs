@@ -97,7 +97,6 @@ namespace Laba3_oop
 
             return new InternetShop(name, address, purchaseCount, productCount, 
                 averageCheck, rating, isActive);
-        }
-        
+        }       
     }
 }
