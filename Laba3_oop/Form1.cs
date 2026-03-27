@@ -245,6 +245,11 @@ namespace Laba3_oop
             comboBox1.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Обработчик события выбора объекта в списке
+        /// </summary>
+        /// <param name="sender">Объект, вызвавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void cmbObjectsList_SelectionChangeCommitted(object sender, EventArgs e)
         {
             CurrentShop = ShopsList[cmbObjectsList.SelectedIndex];
@@ -273,6 +278,11 @@ namespace Laba3_oop
             DisplayCurrentShopInfo();
         }
 
+        /// <summary>
+        /// Заполняет поля формы значениями по умолчанию в зависимости от выбранного типа магазина
+        /// </summary>
+        /// <param name="sender">Объект, вызвавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void button2_Click_1(object sender, EventArgs e)
         {
             int index = comboBox2.SelectedIndex;
