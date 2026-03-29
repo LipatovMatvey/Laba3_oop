@@ -10,7 +10,7 @@ namespace Laba3_oop
         /// <summary>
         /// Регулярное выражение для проверки на корректность ввода имени магазина
         /// </summary>
-        private static readonly string _shopNamePattern = @"^(?!\d+$)(?!.*\s{2})[A-Za-zА-Яа-яЁё0-9&""' -]{2,15}$";
+        private static readonly string _shopNamePattern = @"^(?!\d+$)(?!.*\s{2})[A-Za-zА-Яа-яЁё0-9&""' -]{2,40}$";
 
         /// <summary>
         /// Регулярное выражение для проверки на корректность ввода адреса
@@ -31,7 +31,7 @@ namespace Laba3_oop
         }
 
         /// <summary>
-        /// Проверяет корректность адреса магазина
+        /// Проверяет корректность адреса склада магазина
         /// </summary>
         /// <param name="address">Адрес для проверки</param>
         /// <returns>true если адрес корректен, иначе false</returns>

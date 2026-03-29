@@ -23,7 +23,7 @@ namespace Laba3_oop
         }
 
         /// <summary>
-        /// Адрес магазина
+        /// Адрес склада магазина
         /// </summary>
         private string address;
 
@@ -149,7 +149,7 @@ namespace Laba3_oop
         public override string ToString()
         {
             return $"Интернет-магазин: {name}\r\n" +
-                   $"Адрес: {address}\r\n" +
+                   $"Адрес склада: {address}\r\n" +
                    $"Количество покупок в сутки: {purchaseCount}\r\n" +
                    $"Количество товаров: {productCount}\r\n" +
                    $"Средний чек: {averageCheck:C}\r\n" +

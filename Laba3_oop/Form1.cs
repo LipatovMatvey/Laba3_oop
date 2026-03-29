@@ -15,13 +15,19 @@ namespace Laba3_oop
         private List<InternetShop> ShopsList;
 
         /// <summary>
+        /// Объект билдера
+        /// </summary>
+        ShopBuilder CurrentShopBuilder = new DefaultShopBuilder();
+
+        /// <summary>
         /// Конструктор формы
         /// </summary>
         public Form1()
         {
             InitializeComponent();
             ShopsList = new List<InternetShop>();
-            BoxMessage.ShowNativeMessageBox("Приветствие", "Лабораторная работа № 3. Порождающие паттерны \n\rГруппа: " +
+            comboBox2.SelectedIndex = 3;
+            BoxMessage.ShowNativeMessageBox("Приветствие", "Лабораторная работа № 3. Порождающие паттерны \n\rBuilder(Строитель)\n\rГруппа: " +
                 "24ВП2\r\nБригада 11: Кузнецов Н.Д. Липатов М.В.", BoxMessage.InfoCode);
         }
 
@@ -47,71 +53,45 @@ namespace Laba3_oop
             {
                 string name = textBox1.Text.Trim();
                 string address = textBox2.Text.Trim();
+
+                if (!InputChecker.IsValidShopName(name))
+                {
+                    BoxMessage.ShowNativeMessageBox("Ошибка", "Имя магазина некорректно", BoxMessage.ErrorCode);
+                    return;
+                }
+                if (!InputChecker.IsValidAddress(address))
+                {
+                    BoxMessage.ShowNativeMessageBox("Ошибка", "Адрес магазина некорректен", BoxMessage.ErrorCode);
+                    return;
+                }
+
                 int purchases = (int)numericUpDown1.Value;
                 int products = (int)numericUpDown2.Value;
                 double avgCheck = (double)numericUpDown3.Value;
                 double rating = (double)numericUpDown4.Value;
                 int active = comboBox1.SelectedIndex;
                 bool isActive = active == 0 ? true : false;
-                string BuilderName = comboBox2.SelectedItem == null ? "По умолчанию" : (string)comboBox2.SelectedItem;
+                string BuilderName = (string)comboBox2.SelectedItem;
 
                 switch (BuilderName)
                 {
                     case "По умолчанию":
-                        comboBox2.SelectedIndex = 3;
-                        DefaultShopBuilder DefaultBuilder = new DefaultShopBuilder();
-                        ShopDirector DefDirector = new ShopDirector(DefaultBuilder);
-                        CurrentShop = DefDirector.CreateShop(name, address, purchases, products, avgCheck, rating, isActive);
+                        CurrentShop = CurrentShopBuilder.Build();
+                        showFieldsData(CurrentShop);
                         break;
-                    case "Гипермаркет":
-                        if (!InputChecker.IsValidShopName(name))
-                        {
-                            BoxMessage.ShowNativeMessageBox("Ошибка", "Имя магазина некорректно", BoxMessage.ErrorCode);
-                            return;
-                        }
-                        if (!InputChecker.IsValidAddress(address))
-                        {
-                            BoxMessage.ShowNativeMessageBox("Ошибка", "Адрес магазина некорректен", BoxMessage.ErrorCode);
-                            return;
-                        }
-                        LargeShopBuilder LargeBuilder = new LargeShopBuilder();
-                        ShopDirector LargeDirector = new ShopDirector(LargeBuilder);
-                        CurrentShop = LargeDirector.CreateShop(name, address, purchases, products, avgCheck, rating, isActive);
+                    case "Крупный":
+                        CurrentShop = CurrentShopBuilder.Build();
                         break;
-                    case "Минимаркет":
-                        if (!InputChecker.IsValidShopName(name))
-                        {
-                            BoxMessage.ShowNativeMessageBox("Ошибка", "Имя магазина некорректно", BoxMessage.ErrorCode);
-                            return;
-                        }
-                        if (!InputChecker.IsValidAddress(address))
-                        {
-                            BoxMessage.ShowNativeMessageBox("Ошибка", "Адрес магазина некорректен", BoxMessage.ErrorCode);
-                            return;
-                        }
-                        SmallShopBuilder SmallBuilder = new SmallShopBuilder();
-                        ShopDirector SmallDirector = new ShopDirector(SmallBuilder);
-                        CurrentShop = SmallDirector.CreateShop(name, address, purchases, products, avgCheck, rating, isActive);
+                    case "Маленький":
+                        CurrentShop = CurrentShopBuilder.Build();
                         break;
-                    case "Премиум-магазин":
-                        if (!InputChecker.IsValidShopName(name))
-                        {
-                            BoxMessage.ShowNativeMessageBox("Ошибка", "Имя магазина некорректно", BoxMessage.ErrorCode);
-                            return;
-                        }
-                        if (!InputChecker.IsValidAddress(address))
-                        {
-                            BoxMessage.ShowNativeMessageBox("Ошибка", "Адрес магазина некорректен", BoxMessage.ErrorCode);
-                            return;
-                        }
-                        PremiumShopBuilder PremiumBuilder = new PremiumShopBuilder();
-                        ShopDirector PremiumDirector = new ShopDirector(PremiumBuilder);
-                        CurrentShop = PremiumDirector.CreateShop(name, address, purchases, products, avgCheck, rating, isActive);
+                    case "Премиум":
+                        CurrentShop = CurrentShopBuilder.Build();
                         break;
                 }
                 BoxMessage.ShowNativeMessageBox("Успех", "Объект создан с при помощи билдера " + BuilderName, BoxMessage.SuccessCode);
                 ShopsList.Add(CurrentShop);
-                UpdateObjectCount();
+                UpdateObjectsCount();
                 UpdateObjectsList();
                 DisplayCurrentShopInfo();
             }
@@ -124,7 +104,7 @@ namespace Laba3_oop
         /// <summary>
         /// Обновляет отображение количества созданных объектов в интерфейсе
         /// </summary>
-        private void UpdateObjectCount()
+        private void UpdateObjectsCount()
         {
             lblObjectCount.Text = $"Создано объектов: {ShopsList.Count}";
         }
@@ -218,8 +198,10 @@ namespace Laba3_oop
                         CurrentShop = ShopsList[0];
                         DisplayCurrentShopInfo();
                     }
-                    UpdateObjectCount();
+                    UpdateObjectsCount();
                     UpdateObjectsList();
+                    if (CurrentShop.Name == deletedName) resetFields();
+                    txtDisplayInfo.Text = "";
                     BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", BoxMessage.SuccessCode);
                 }
             }
@@ -236,6 +218,14 @@ namespace Laba3_oop
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            resetFields();
+        }
+
+        /// <summary>
+        /// Очищает все поля формы
+        /// </summary>
+        private void resetFields()
+        {
             textBox1.Text = "";
             textBox2.Text = "";
             numericUpDown1.Value = 0;
@@ -250,7 +240,19 @@ namespace Laba3_oop
             CurrentShop = ShopsList[cmbObjectsList.SelectedIndex];
             UpdateObjectsList();
             DisplayCurrentShopInfo();
+            showFieldsData(CurrentShop);
             BoxMessage.ShowNativeMessageBox("Успех", $"Переключено на объект: {CurrentShop.Name}", BoxMessage.SuccessCode);
+        }
+
+        private void showFieldsData(InternetShop shop)
+        {
+            textBox1.Text = shop.Name;
+            textBox2.Text = shop.Address;
+            numericUpDown1.Value = shop.PurchaseCount;
+            numericUpDown2.Value = shop.ProductCount;
+            numericUpDown3.Value = (decimal)shop.AverageCheck;
+            numericUpDown4.Value = (decimal)shop.Rating;
+            comboBox1.SelectedIndex = shop.IsActive == true ? 0 : 1;
         }
 
         /// <summary>
@@ -284,31 +286,34 @@ namespace Laba3_oop
             switch (index)
             {
                 case 0:
-                    textBox1.Text = "Гипермаркет";
+                    textBox1.Text = "Крупный интернет-магазин";
                     textBox2.Text = "Не указан";
                     numericUpDown1.Value = 1500;
                     numericUpDown2.Value = 5000;
                     numericUpDown3.Value = 5000.0m;
                     numericUpDown4.Value = 4.5m;
                     comboBox1.SelectedIndex = 0;
+                    CurrentShopBuilder = new LargeShopBuilder();
                     break;
                 case 1:
-                    textBox1.Text = "Минимаркет";
+                    textBox1.Text = "Маленький интернет-магазин";
                     textBox2.Text = "Не указан";
                     numericUpDown1.Value = 40;
                     numericUpDown2.Value = 150;
                     numericUpDown3.Value = 400.0m;
                     numericUpDown4.Value = 3.4m;
                     comboBox1.SelectedIndex = 0;
+                    CurrentShopBuilder = new SmallShopBuilder();
                     break;
                 case 2:
-                    textBox1.Text = "Премиум-магазин";
+                    textBox1.Text = "Премиум интернет-магазин";
                     textBox2.Text = "Не указан";
                     numericUpDown1.Value = 2500;
                     numericUpDown2.Value = 5000;
                     numericUpDown3.Value = 5000.0m;
                     numericUpDown4.Value = 4.9m;
                     comboBox1.SelectedIndex = 0;
+                    CurrentShopBuilder = new PremiumShopBuilder();
                     break;
                 case 3:
                     textBox1.Text = "Noname";
@@ -318,6 +323,113 @@ namespace Laba3_oop
                     numericUpDown3.Value = 0.0m;
                     numericUpDown4.Value = 0.0m;
                     comboBox1.SelectedIndex = 1;
+                    CurrentShopBuilder = new DefaultShopBuilder();
+                    break;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.TextBox textHolder)
+            {
+                CurrentShopBuilder.InstallName(textHolder.Text);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.TextBox textHolder)
+            {
+                CurrentShopBuilder.InstallAddress(textHolder.Text);
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.NumericUpDown valueHolder)
+            {
+                CurrentShopBuilder.InstallPurchaseCount((int)valueHolder.Value);
+            }
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.NumericUpDown valueHolder)
+            {
+                CurrentShopBuilder.InstallProductCount((int)valueHolder.Value);
+            }
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.NumericUpDown valueHolder)
+            {
+                CurrentShopBuilder.InstallAverageCheck((double)valueHolder.Value);
+            }
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.NumericUpDown valueHolder)
+            {
+                CurrentShopBuilder.InstallRating((double)valueHolder.Value);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.ComboBox valueHolder)
+            {
+                bool status = comboBox1.SelectedIndex == 1 ? true : false;
+                CurrentShopBuilder.InstallIsActive(status);
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = comboBox2.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                    textBox1.Text = "Крупный интернет-магазин";
+                    textBox2.Text = "Не указан";
+                    numericUpDown1.Value = 1500;
+                    numericUpDown2.Value = 5000;
+                    numericUpDown3.Value = 5000.0m;
+                    numericUpDown4.Value = 4.5m;
+                    comboBox1.SelectedIndex = 0;
+                    CurrentShopBuilder = new LargeShopBuilder();
+                    break;
+                case 1:
+                    textBox1.Text = "Маленький интернет-магазин";
+                    textBox2.Text = "Не указан";
+                    numericUpDown1.Value = 40;
+                    numericUpDown2.Value = 150;
+                    numericUpDown3.Value = 400.0m;
+                    numericUpDown4.Value = 3.4m;
+                    comboBox1.SelectedIndex = 0;
+                    CurrentShopBuilder = new SmallShopBuilder();
+                    break;
+                case 2:
+                    textBox1.Text = "Премиум интернет-магазин";
+                    textBox2.Text = "Не указан";
+                    numericUpDown1.Value = 2500;
+                    numericUpDown2.Value = 5000;
+                    numericUpDown3.Value = 5000.0m;
+                    numericUpDown4.Value = 4.9m;
+                    comboBox1.SelectedIndex = 0;
+                    CurrentShopBuilder = new PremiumShopBuilder();
+                    break;
+                case 3:
+                    textBox1.Text = "Noname";
+                    textBox2.Text = "Noaddress";
+                    numericUpDown1.Value = 0;
+                    numericUpDown2.Value = 0;
+                    numericUpDown3.Value = 0.0m;
+                    numericUpDown4.Value = 0.0m;
+                    comboBox1.SelectedIndex = 1;
+                    CurrentShopBuilder = new DefaultShopBuilder();
                     break;
             }
         }
