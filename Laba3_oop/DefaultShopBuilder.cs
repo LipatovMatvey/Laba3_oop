@@ -6,12 +6,39 @@ namespace Laba3_oop
 {
     public class DefaultShopBuilder : ShopBuilder
     {
+        /// <summary>
+        /// Название магазина
+        /// </summary>
         private string name = "Noname";
+
+        /// <summary>
+        /// Адрес склада магазина
+        /// </summary>
         private string address = "Noaddress";
+
+        /// <summary>
+        /// Число покупок в сутки
+        /// </summary>
         private int purchaseCount = 0;
+
+        /// <summary>
+        /// Количество товаров
+        /// </summary>
         private int productCount = 0;
+
+        /// <summary>
+        /// Средний чек
+        /// </summary>
         private double averageCheck = 0.0;
+
+        /// <summary>
+        /// Рейтинг магазина
+        /// </summary>
         private double rating = 0.0;
+
+        /// <summary>
+        /// Активен ли магазин
+        /// </summary>
         private bool isActive = false;
 
         public ShopBuilder InstallName(string name)
@@ -50,11 +77,6 @@ namespace Laba3_oop
             return this;
         }
 
-
-        /// <summary>
-        /// Строит и возвращает объект с установленными параметрами
-        /// </summary>
-        /// <returns>Сконфигурированный интернет-магазин</returns>
         public InternetShop Build()
         {
             return new InternetShop(name, address, purchaseCount, productCount, averageCheck, rating, isActive);

@@ -17,12 +17,12 @@ namespace Laba3_oop
         private string address = "Не указан";
 
         /// <summary>
-        /// Кол-во покупок в день
+        /// Число покупок в сутки
         /// </summary>
         private int purchaseCount = 1500;
 
         /// <summary>
-        /// Кол-во товара
+        /// Количество товаров
         /// </summary>
         private int productCount = 5000;
 
@@ -37,7 +37,7 @@ namespace Laba3_oop
         private double rating = 4.5;
 
         /// <summary>
-        /// Активность магазина
+        /// Активен ли магазин
         /// </summary>
         private bool isActive = true;
 

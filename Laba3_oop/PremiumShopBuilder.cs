@@ -7,7 +7,7 @@ namespace Laba3_oop
     public class PremiumShopBuilder : ShopBuilder
     {
         /// <summary>
-        /// Имя магазина
+        /// Название магазина
         /// </summary>
         private string name = "Премиум интернет-магазин";
 

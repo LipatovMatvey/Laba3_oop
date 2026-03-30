@@ -128,9 +128,9 @@ namespace Laba3_oop
             // 
             textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Font = new Font("Trebuchet MS", 9.75F);
-            textBox1.Location = new Point(147, 31);
+            textBox1.Location = new Point(149, 32);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(152, 26);
+            textBox1.Size = new Size(169, 26);
             textBox1.TabIndex = 3;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -157,9 +157,9 @@ namespace Laba3_oop
             // 
             textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox2.Font = new Font("Trebuchet MS", 9.75F);
-            textBox2.Location = new Point(147, 81);
+            textBox2.Location = new Point(149, 75);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(152, 26);
+            textBox2.Size = new Size(169, 26);
             textBox2.TabIndex = 6;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -177,11 +177,11 @@ namespace Laba3_oop
             // 
             numericUpDown1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDown1.Font = new Font("Trebuchet MS", 9.75F);
-            numericUpDown1.Location = new Point(166, 117);
+            numericUpDown1.Location = new Point(177, 115);
             numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(134, 26);
+            numericUpDown1.Size = new Size(141, 26);
             numericUpDown1.TabIndex = 8;
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
@@ -199,11 +199,11 @@ namespace Laba3_oop
             // 
             numericUpDown2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDown2.Font = new Font("Trebuchet MS", 9.75F);
-            numericUpDown2.Location = new Point(165, 166);
+            numericUpDown2.Location = new Point(177, 160);
             numericUpDown2.Margin = new Padding(3, 2, 3, 2);
             numericUpDown2.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(134, 26);
+            numericUpDown2.Size = new Size(141, 26);
             numericUpDown2.TabIndex = 10;
             numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
             // 
@@ -223,11 +223,11 @@ namespace Laba3_oop
             numericUpDown3.DecimalPlaces = 2;
             numericUpDown3.Font = new Font("Trebuchet MS", 9.75F);
             numericUpDown3.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDown3.Location = new Point(165, 206);
+            numericUpDown3.Location = new Point(177, 206);
             numericUpDown3.Margin = new Padding(3, 2, 3, 2);
             numericUpDown3.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(134, 26);
+            numericUpDown3.Size = new Size(141, 26);
             numericUpDown3.TabIndex = 12;
             numericUpDown3.ValueChanged += numericUpDown3_ValueChanged;
             // 
@@ -247,11 +247,11 @@ namespace Laba3_oop
             numericUpDown4.DecimalPlaces = 2;
             numericUpDown4.Font = new Font("Trebuchet MS", 9.75F);
             numericUpDown4.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numericUpDown4.Location = new Point(165, 239);
+            numericUpDown4.Location = new Point(177, 242);
             numericUpDown4.Margin = new Padding(3, 2, 3, 2);
             numericUpDown4.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(134, 26);
+            numericUpDown4.Size = new Size(141, 26);
             numericUpDown4.TabIndex = 14;
             numericUpDown4.ValueChanged += numericUpDown4_ValueChanged;
             // 
@@ -272,9 +272,9 @@ namespace Laba3_oop
             comboBox1.Font = new Font("Trebuchet MS", 9.75F);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Активен", "Неактивен" });
-            comboBox1.Location = new Point(149, 277);
+            comboBox1.Location = new Point(177, 277);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(152, 30);
+            comboBox1.Size = new Size(141, 30);
             comboBox1.TabIndex = 16;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -345,7 +345,7 @@ namespace Laba3_oop
             groupBoxInput.Font = new Font("Trebuchet MS", 9.75F);
             groupBoxInput.Location = new Point(19, 103);
             groupBoxInput.Name = "groupBoxInput";
-            groupBoxInput.Size = new Size(318, 308);
+            groupBoxInput.Size = new Size(335, 311);
             groupBoxInput.TabIndex = 18;
             groupBoxInput.TabStop = false;
             groupBoxInput.Text = "Ввод данных";
@@ -443,7 +443,7 @@ namespace Laba3_oop
             btnDeleteObject.Anchor = AnchorStyles.None;
             btnDeleteObject.BackColor = Color.White;
             btnDeleteObject.Font = new Font("Trebuchet MS", 9.75F);
-            btnDeleteObject.Location = new Point(210, 38);
+            btnDeleteObject.Location = new Point(210, 44);
             btnDeleteObject.Name = "btnDeleteObject";
             btnDeleteObject.Size = new Size(90, 32);
             btnDeleteObject.TabIndex = 3;

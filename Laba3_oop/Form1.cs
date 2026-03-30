@@ -184,6 +184,7 @@ namespace Laba3_oop
             {
                 int indexToDelete = cmbObjectsList.SelectedIndex;
                 string deletedName = ShopsList[indexToDelete].Name;
+                bool wasCurrent = (CurrentShop != null && ShopsList[indexToDelete] == CurrentShop);
                 int result = BoxMessage.ShowNativeMessageBox("Подтверждение", $"Удалить объект '{deletedName}'?", BoxMessage.ConfirmCode);
                 if (result == 6)
                 {
@@ -192,15 +193,28 @@ namespace Laba3_oop
                     {
                         CurrentShop = null;
                         txtDisplayInfo.Clear();
+                        resetFields();
+                        UpdateObjectsCount();
+                        UpdateObjectsList();
+                        BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", BoxMessage.SuccessCode);
+                        return;
                     }
-                    else if (CurrentShop != null && indexToDelete <= ShopsList.IndexOf(CurrentShop))
+                    if (wasCurrent)
                     {
                         CurrentShop = ShopsList[0];
+                        DisplayCurrentShopInfo();
+                        showFieldsData(CurrentShop);
+                    }
+                    else if (CurrentShop != null && indexToDelete < ShopsList.IndexOf(CurrentShop))
+                    {
                         DisplayCurrentShopInfo();
                     }
                     UpdateObjectsCount();
                     UpdateObjectsList();
-                    if (CurrentShop.Name == deletedName) resetFields();
+                    if (wasCurrent)
+                    {
+                        resetFields();
+                    }
                     txtDisplayInfo.Text = "";
                     BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", BoxMessage.SuccessCode);
                 }
@@ -249,6 +263,10 @@ namespace Laba3_oop
             BoxMessage.ShowNativeMessageBox("Успех", $"Переключено на объект: {CurrentShop.Name}", BoxMessage.SuccessCode);
         }
 
+        /// <summary>
+        /// Заполняет поля формы данными из указанного объекта интернет-магазина
+        /// </summary>
+        /// <param name="shop">Объект интернет-магазина</param>
         private void showFieldsData(InternetShop shop)
         {
             textBox1.Text = shop.Name;
@@ -338,6 +356,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения текста в поле ввода названия магазина
+        /// Передаёт введённое имя текущему строителю
+        /// </summary>
+        /// <param name="sender">Поле ввода textBox1</param>
+        /// <param name="e">Аргументы события</param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (sender is System.Windows.Forms.TextBox textHolder)
@@ -346,6 +370,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения текста в поле ввода адреса магазина
+        /// Передаёт введённый адрес текущему строителю
+        /// </summary>
+        /// <param name="sender">Поле ввода textBox2</param>
+        /// <param name="e">Аргументы события</param>
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (sender is System.Windows.Forms.TextBox textHolder)
@@ -354,6 +384,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения количества покупок
+        /// Передаёт новое значение строителю
+        /// </summary>
+        /// <param name="sender">Элемент numericUpDown1</param>
+        /// <param name="e">Аргументы события</param>
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             if (sender is System.Windows.Forms.NumericUpDown valueHolder)
@@ -362,6 +398,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения количества товаров
+        /// Передаёт новое значение строителю
+        /// </summary>
+        /// <param name="sender">Элемент numericUpDown2</param>
+        /// <param name="e">Аргументы события</param>
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             if (sender is System.Windows.Forms.NumericUpDown valueHolder)
@@ -370,6 +412,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения среднего чека
+        /// Передаёт новое значение строителю
+        /// </summary>
+        /// <param name="sender">Элемент numericUpDown3</param>
+        /// <param name="e">Аргументы события</param>
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
             if (sender is System.Windows.Forms.NumericUpDown valueHolder)
@@ -378,6 +426,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения рейтинга магазина
+        /// Передаёт новое значение строителю
+        /// </summary>
+        /// <param name="sender">Элемент numericUpDown4</param>
+        /// <param name="e">Аргументы события</param>
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
             if (sender is System.Windows.Forms.NumericUpDown valueHolder)
@@ -386,6 +440,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения выбора статуса активности магазина
+        /// Устанавливает флаг активности в строителе
+        /// </summary>
+        /// <param name="sender">Элемент comboBox1</param>
+        /// <param name="e">Аргументы события</param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sender is System.Windows.Forms.ComboBox valueHolder)
@@ -395,6 +455,12 @@ namespace Laba3_oop
             }
         }
 
+        /// <summary>
+        /// Обработчик выбора типа магазина
+        /// Заполняет поля формы значениями-примерами и переключает текущий строитель
+        /// </summary>
+        /// <param name="sender">Элемент comboBox2</param>
+        /// <param name="e">Аргументы события</param>
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = comboBox2.SelectedIndex;
