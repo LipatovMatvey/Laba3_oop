@@ -9,10 +9,10 @@ namespace Laba3_oop
         /// <summary>
         /// Имя магазина
         /// </summary>
-        private string name = "Премиум-магазин";
+        private string name = "Премиум интернет-магазин";
 
         /// <summary>
-        /// Адрес магазина
+        /// Адрес склада магазина
         /// </summary>
         private string address = "Не указан";
 
@@ -86,13 +86,13 @@ namespace Laba3_oop
         public InternetShop Build()
         {
             if (productCount < 4000)
-                throw new ArgumentException("Для премиум-магазина количество товаров не может " +
+                throw new ArgumentException("Для премиум интернет-магазина количество товаров не может " +
                     "быть меньше 4000.");
             if (averageCheck < 4850.5)
-                throw new ArgumentException("Средний чек для премиум-магазина не может быть " +
+                throw new ArgumentException("Средний чек для премиум интернет-магазина не может быть " +
                     "ниже 4850.5.");
             if (purchaseCount < 2000)
-                throw new ArgumentException("Кол-во покупок в день в премиум-магазине должно " +
+                throw new ArgumentException("Кол-во покупок в день в премиум интернет-магазине должно " +
                     "быть не менее 2000.");
             if (rating < 4.85)
                 throw new ArgumentException("Рейтинг в премиум-магазине не может быть менее 4.85 ");
