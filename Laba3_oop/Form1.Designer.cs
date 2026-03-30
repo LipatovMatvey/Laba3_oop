@@ -85,7 +85,7 @@ namespace Laba3_oop
             label1.ForeColor = SystemColors.ButtonFace;
             label1.Location = new Point(18, 3);
             label1.Name = "label1";
-            label1.Size = new Size(254, 60);
+            label1.Size = new Size(318, 72);
             label1.TabIndex = 0;
             label1.Text = "Лабораторная работа №3\nСтуденты: Липатов М. Кузнецов Н.\r\nГруппа: 24ВП2";
             // 
@@ -109,7 +109,7 @@ namespace Laba3_oop
             label2.ForeColor = SystemColors.ButtonFace;
             label2.Location = new Point(607, 11);
             label2.Name = "label2";
-            label2.Size = new Size(226, 20);
+            label2.Size = new Size(285, 24);
             label2.TabIndex = 1;
             label2.Text = "Тема: Порождающие паттерны";
             // 
@@ -131,7 +131,7 @@ namespace Laba3_oop
             textBox1.Font = new Font("Trebuchet MS", 9.75F);
             textBox1.Location = new Point(149, 24);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(140, 23);
+            textBox1.Size = new Size(152, 26);
             textBox1.TabIndex = 3;
             // 
             // label3
@@ -140,7 +140,7 @@ namespace Laba3_oop
             label3.Font = new Font("Trebuchet MS", 9.75F);
             label3.Location = new Point(13, 24);
             label3.Name = "label3";
-            label3.Size = new Size(96, 36);
+            label3.Size = new Size(127, 46);
             label3.TabIndex = 4;
             label3.Text = "Наименование\r\nмагазина:";
             // 
@@ -150,7 +150,7 @@ namespace Laba3_oop
             label4.Font = new Font("Trebuchet MS", 9.75F);
             label4.Location = new Point(13, 75);
             label4.Name = "label4";
-            label4.Size = new Size(109, 18);
+            label4.Size = new Size(141, 23);
             label4.TabIndex = 5;
             label4.Text = "Адрес магазина:";
             // 
@@ -160,7 +160,7 @@ namespace Laba3_oop
             textBox2.Font = new Font("Trebuchet MS", 9.75F);
             textBox2.Location = new Point(149, 72);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(140, 23);
+            textBox2.Size = new Size(152, 26);
             textBox2.TabIndex = 6;
             // 
             // label5
@@ -169,7 +169,7 @@ namespace Laba3_oop
             label5.Font = new Font("Trebuchet MS", 9.75F);
             label5.Location = new Point(13, 115);
             label5.Name = "label5";
-            label5.Size = new Size(100, 18);
+            label5.Size = new Size(130, 23);
             label5.TabIndex = 7;
             label5.Text = "Число покупок:";
             // 
@@ -181,7 +181,7 @@ namespace Laba3_oop
             numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(122, 23);
+            numericUpDown1.Size = new Size(134, 26);
             numericUpDown1.TabIndex = 8;
             // 
             // label6
@@ -190,7 +190,7 @@ namespace Laba3_oop
             label6.Font = new Font("Trebuchet MS", 9.75F);
             label6.Location = new Point(13, 151);
             label6.Name = "label6";
-            label6.Size = new Size(77, 36);
+            label6.Size = new Size(101, 46);
             label6.TabIndex = 9;
             label6.Text = "Количество\r\nтоваров:";
             // 
@@ -202,7 +202,7 @@ namespace Laba3_oop
             numericUpDown2.Margin = new Padding(3, 2, 3, 2);
             numericUpDown2.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(122, 23);
+            numericUpDown2.Size = new Size(134, 26);
             numericUpDown2.TabIndex = 10;
             // 
             // label7
@@ -211,7 +211,7 @@ namespace Laba3_oop
             label7.Font = new Font("Trebuchet MS", 9.75F);
             label7.Location = new Point(13, 209);
             label7.Name = "label7";
-            label7.Size = new Size(89, 18);
+            label7.Size = new Size(116, 23);
             label7.TabIndex = 11;
             label7.Text = "Средний чек:";
             // 
@@ -225,7 +225,7 @@ namespace Laba3_oop
             numericUpDown3.Margin = new Padding(3, 2, 3, 2);
             numericUpDown3.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(122, 23);
+            numericUpDown3.Size = new Size(134, 26);
             numericUpDown3.TabIndex = 12;
             // 
             // label8
@@ -234,7 +234,7 @@ namespace Laba3_oop
             label8.Font = new Font("Trebuchet MS", 9.75F);
             label8.Location = new Point(13, 242);
             label8.Name = "label8";
-            label8.Size = new Size(120, 18);
+            label8.Size = new Size(158, 23);
             label8.TabIndex = 13;
             label8.Text = "Рейтинг магазина:";
             // 
@@ -248,7 +248,7 @@ namespace Laba3_oop
             numericUpDown4.Margin = new Padding(3, 2, 3, 2);
             numericUpDown4.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(122, 23);
+            numericUpDown4.Size = new Size(134, 26);
             numericUpDown4.TabIndex = 14;
             // 
             // label9
@@ -257,7 +257,7 @@ namespace Laba3_oop
             label9.Font = new Font("Trebuchet MS", 9.75F);
             label9.Location = new Point(13, 277);
             label9.Name = "label9";
-            label9.Size = new Size(112, 18);
+            label9.Size = new Size(146, 23);
             label9.TabIndex = 15;
             label9.Text = "Статус магазина:";
             // 
@@ -270,7 +270,7 @@ namespace Laba3_oop
             comboBox1.Items.AddRange(new object[] { "Активен", "Неактивен" });
             comboBox1.Location = new Point(149, 277);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(140, 26);
+            comboBox1.Size = new Size(152, 30);
             comboBox1.TabIndex = 16;
             // 
             // groupBoxDisplay
@@ -289,12 +289,12 @@ namespace Laba3_oop
             // 
             txtDisplayInfo.Dock = DockStyle.Fill;
             txtDisplayInfo.Font = new Font("Consolas", 10F);
-            txtDisplayInfo.Location = new Point(3, 19);
+            txtDisplayInfo.Location = new Point(3, 22);
             txtDisplayInfo.Multiline = true;
             txtDisplayInfo.Name = "txtDisplayInfo";
             txtDisplayInfo.ReadOnly = true;
             txtDisplayInfo.ScrollBars = ScrollBars.Vertical;
-            txtDisplayInfo.Size = new Size(373, 292);
+            txtDisplayInfo.Size = new Size(373, 289);
             txtDisplayInfo.TabIndex = 0;
             // 
             // btnShowInfo
@@ -340,7 +340,7 @@ namespace Laba3_oop
             groupBoxInput.Font = new Font("Trebuchet MS", 9.75F);
             groupBoxInput.Location = new Point(19, 103);
             groupBoxInput.Name = "groupBoxInput";
-            groupBoxInput.Size = new Size(306, 308);
+            groupBoxInput.Size = new Size(318, 308);
             groupBoxInput.TabIndex = 18;
             groupBoxInput.TabStop = false;
             groupBoxInput.Text = "Ввод данных";
@@ -392,7 +392,7 @@ namespace Laba3_oop
             label10.Font = new Font("Trebuchet MS", 9.75F);
             label10.Location = new Point(874, 380);
             label10.Name = "label10";
-            label10.Size = new Size(0, 18);
+            label10.Size = new Size(0, 23);
             label10.TabIndex = 31;
             // 
             // groupBoxObjects
@@ -417,7 +417,7 @@ namespace Laba3_oop
             lblCurrentObject.ForeColor = Color.Black;
             lblCurrentObject.Location = new Point(9, 20);
             lblCurrentObject.Name = "lblCurrentObject";
-            lblCurrentObject.Size = new Size(177, 18);
+            lblCurrentObject.Size = new Size(232, 23);
             lblCurrentObject.TabIndex = 0;
             lblCurrentObject.Text = "Текущий объект: не выбран";
             // 
@@ -429,7 +429,7 @@ namespace Laba3_oop
             cmbObjectsList.FormattingEnabled = true;
             cmbObjectsList.Location = new Point(9, 44);
             cmbObjectsList.Name = "cmbObjectsList";
-            cmbObjectsList.Size = new Size(190, 26);
+            cmbObjectsList.Size = new Size(190, 30);
             cmbObjectsList.TabIndex = 1;
             cmbObjectsList.SelectionChangeCommitted += cmbObjectsList_SelectionChangeCommitted;
             // 
@@ -453,7 +453,7 @@ namespace Laba3_oop
             lblObjectCount.ForeColor = Color.Blue;
             lblObjectCount.Location = new Point(19, 82);
             lblObjectCount.Name = "lblObjectCount";
-            lblObjectCount.Size = new Size(134, 18);
+            lblObjectCount.Size = new Size(172, 23);
             lblObjectCount.TabIndex = 17;
             lblObjectCount.Text = "Создано объектов: 0";
             // 
@@ -477,7 +477,7 @@ namespace Laba3_oop
             comboBox2.Items.AddRange(new object[] { "Гипермаркет", "Минимаркет", "Премиум-магазин", "По умолчанию" });
             comboBox2.Location = new Point(7, 22);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(205, 26);
+            comboBox2.Size = new Size(205, 30);
             comboBox2.TabIndex = 1;
             // 
             // button2
@@ -492,7 +492,7 @@ namespace Laba3_oop
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 18F);
+            AutoScaleDimensions = new SizeF(9F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 580);
             Controls.Add(button2);
