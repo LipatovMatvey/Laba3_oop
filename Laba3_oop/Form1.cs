@@ -72,7 +72,6 @@ namespace Laba3_oop
                 int active = comboBox1.SelectedIndex;
                 bool isActive = active == 0 ? true : false;
                 string BuilderName = (string)comboBox2.SelectedItem;
-
                 switch (BuilderName)
                 {
                     case "По умолчанию":
@@ -284,6 +283,7 @@ namespace Laba3_oop
             txtDisplayInfo.Clear();
 
         }
+
         /// <summary>
         /// Обработчик кнопки отображения полной информации о текущем объекте
         /// </summary>
