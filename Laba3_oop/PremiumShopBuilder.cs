@@ -95,7 +95,7 @@ namespace Laba3_oop
                 throw new ArgumentException("Кол-во покупок в день в премиум интернет-магазине должно " +
                     "быть не менее 2000.");
             if (rating < 4.85)
-                throw new ArgumentException("Рейтинг в премиум-магазине не может быть менее 4.85 ");
+                throw new ArgumentException("Рейтинг в премиум интернет-магазине не может быть менее 4.85 ");
             return new InternetShop(name, address, purchaseCount, productCount, averageCheck, rating, isActive);
         }
     }

@@ -210,6 +210,7 @@ namespace Laba3_oop
                     }
                     UpdateObjectsCount();
                     UpdateObjectsList();
+                    resetFields();
                     txtDisplayInfo.Text = "";
                     BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", BoxMessage.SuccessCode);
                 }
