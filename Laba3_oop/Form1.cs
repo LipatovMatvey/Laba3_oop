@@ -183,7 +183,6 @@ namespace Laba3_oop
             {
                 int indexToDelete = cmbObjectsList.SelectedIndex;
                 string deletedName = ShopsList[indexToDelete].Name;
-                bool wasCurrent = (CurrentShop != null && ShopsList[indexToDelete] == CurrentShop);
                 int result = BoxMessage.ShowNativeMessageBox("Подтверждение", $"Удалить объект '{deletedName}'?", BoxMessage.ConfirmCode);
                 if (result == 6)
                 {
@@ -192,20 +191,10 @@ namespace Laba3_oop
                     {
                         CurrentShop = null;
                         txtDisplayInfo.Clear();
-                        resetFields();
-                        UpdateObjectsCount();
-                        UpdateObjectsList();
-                        BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", BoxMessage.SuccessCode);
-                        return;
                     }
-                    if (wasCurrent)
+                    else if (CurrentShop != null && indexToDelete <= ShopsList.IndexOf(CurrentShop))
                     {
                         CurrentShop = ShopsList[0];
-                        DisplayCurrentShopInfo();
-                        showFieldsData(CurrentShop);
-                    }
-                    else if (CurrentShop != null && indexToDelete < ShopsList.IndexOf(CurrentShop))
-                    {
                         DisplayCurrentShopInfo();
                     }
                     UpdateObjectsCount();
