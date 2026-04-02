@@ -200,7 +200,7 @@ namespace Laba3_oop
                     }
                     UpdateObjectsCount();
                     UpdateObjectsList();
-                    if (CurrentShop.Name == deletedName) resetFields();
+                    resetFields();
                     txtDisplayInfo.Text = "";
                     BoxMessage.ShowNativeMessageBox("Успех", "Объект удален", BoxMessage.SuccessCode);
                 }
